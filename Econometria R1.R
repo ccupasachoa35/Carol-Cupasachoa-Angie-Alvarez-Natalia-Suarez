@@ -68,6 +68,7 @@ summary(c3.2)
 #140 pies cuadrados? Compare esto con su respuesta al inciso (ii).
 
 price.hmas = (0.128436*140) + (15.19819*1)
+view(price.hmas)
 
 ### Una habiatacion adicional de 140 pies cuadrados tiene un incremento en el precio de 33.179 dolares. 
 ## Con respecto al punto anterior, en este caso el precio es un poco más del doble considerando que el tamaño de la casa tambien 
@@ -88,6 +89,7 @@ summary(c3.2)
 
 #MCOprice = (-19.31500 + 0.128436sqrft + 15.19819bdrms)
 MCOprice = (-19.31500 + (0.128436 * 2438) + (15.19819 * 4))
+view(MCOprice)
 ###El precio estimado para la casa con la linea de regresion MCO es de $354.604 dolares
 
 
@@ -96,6 +98,7 @@ MCOprice = (-19.31500 + (0.128436 * 2438) + (15.19819 * 4))
 #menos por la casa?
 
 Residual= (300-MCOprice)
+view(Residual)
 
 ## El comprador de la primera casa pago $54,604.728 menos de lo que se esperaba, debido a que el precio 
 ## de la casa estaba sobreevaluado.
