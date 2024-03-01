@@ -1,0 +1,94 @@
+---
+title: "Carol Cupasachoa - Angie Alvarez - Natalia Suarez"
+output: html_document
+date: "2024-03-01"
+---
+#c3.1
+
+##i) ¿Cual es el signo más probable para b2?
+
+###El signo más probable para b2 sería positivo, debido a que el aumento de un nivel de ingresos mejorarían el peso del bebé al nacer.
+
+##ii) ¿Cree que cigs y faminc estén correlacionados? Explique por qué la correlación puede ser positiva o negativa.
+
+```{r}
+cor(bwght$faminc, bwght$cigs)
+```
+
+###Cigs y faminc tienen una correlación negativa, ya que por lo general las madres con un mayor nivel de ingresos tienen estilos de vida más saludables, por lo cual tienden a no fumar en el embarazo.
+
+##iii) Ahora, calcule la ecuación con y sin faminc utilizando los datos del archivo BWGHT.
+
+```{r}
+library(wooldridge)
+data("bwght")
+
+# Con Faminc
+c3.1 <- lm(bwght ~ cigs + faminc, data = bwght)
+summary(c3.1)
+
+# Sin Faminc
+c3.11 <- lm(bwght ~ cigs, data = bwght)
+summary(c3.11)
+```
+
+###RTA: En la ecuación con faminc se evidencia que por cada aumento en un cigarrillo al día durante el embarazo, se espera que el peso del bebé al nacer disminuya en promedio 0.46341 libras, teniendo constante el nivel de ingreso de la madre. Además, por cada aumento en un nivel de ingreso de la madre, se espera que el peso al nacer del bebé aumente en 0.09276 libras, manteniendo el número constante de cigarrillos al día durante el embarazo. En el modelo sin faminc, se espera que el peso del bebé al nacer disminuya en promedio 0.51377 libras por cada aumento en un cigarrillo al día durante el embarazo.
+
+###En cuanto a la significancia estadística, vemos que el aumento de cigarrillos y del nivel de ingresos son significativos en el peso del bebé al nacer porque el valor de P es menor que 0.05 establecido.
+
+###Por último, con el coeficiente de determinación, se ve que el modelo con Faminc explica el 2.84% de la varianza del peso del bebé al nacer, mientras que en el modelo sin faminc, este explica el 2.202% de la varianza. El R cuadrado aumentó con Faminc porque se añadió una variable adicional.
+
+
+
+#c3.2
+
+##Utilice los datos del archivo HPRICE1.RAW para estimar el modelo
+```{r}
+data("hprice1")
+summary(hprice1)
+
+c3.2 <- lm(price ~ sqrft + bdrms, data = hprice1)
+summary(c3.2)
+```
+
+##i) Escriba los resultados en forma de ecuación.
+
+price = -19.31500 + 0.12844 * sqrft + 15.19819 * bdrms
+##ii) ¿Cuál es el incremento en precio estimado para una casa con una habitación (bdrms) más, manteniendo constante la superficie en pies cuadrados (sqrft)?
+
+Si la variación de la superficie en pies cuadrados (sqrft) se mantiene constante, solo tiene efecto la variación de las habitaciones. Por ende, por cada habitación adicional en la casa, el precio de la casa aumentará en $15.198 dólares.
+##iii) ¿Cuál es el incremento en precio estimado para una casa con una habitación adicional de 140 pies cuadrados? Compare esto con su respuesta al inciso (ii).
+
+```{r}
+price.hmas = (0.128436 * 140) + (15.19819 * 1)
+```
+
+Una habitación adicional de 140 pies cuadrados tiene un incremento en el precio de $33.179 dólares. En comparación con el inciso (ii), el precio es un poco más del doble ya que el tamaño de la casa también aumentó.
+##iv) ¿Qué porcentaje de la variación en el precio se explica por la extensión en pies cuadrados y el número de habitaciones?
+
+```{r}
+summary(c3.2)
+```
+
+A partir del coeficiente de determinación R^2, se puede observar que el porcentaje de la variación del precio es del 63.19%.
+##v) La primera casa en la muestra tiene sqrft = 2,438 y bdrms = 4. Determine el precio de venta estimado para esta casa con la línea de regresión de MCO.
+
+```{r}
+MCOprice = (-19.31500 + (0.128436 * 2438) + (15.19819 * 4))
+```
+
+El precio estimado para la casa con la línea de regresión MCO es de $354,604 dólares.
+##vi) El precio de venta de la primera casa en la muestra fue $300,000 (así que price = 300). Determine el residual para esta casa. ¿Sugiere esto que el comprador pagó de más o de menos por la casa?
+
+```{r}
+Residual = (300 - MCOprice)
+```
+ 
+ El comprador de la primera casa pagó $54,604.728 dólares menos de lo que se esperaba, lo que sugiere que el precio de la casa estaba sobreevaluado.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
