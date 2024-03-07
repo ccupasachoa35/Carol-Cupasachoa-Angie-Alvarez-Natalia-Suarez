@@ -11,9 +11,6 @@ date: "2024-03-01"
 
 ##ii) ¿Cree que cigs y faminc estén correlacionados? Explique por qué la correlación puede ser positiva o negativa.
 
-```{r}
-cor(bwght$faminc, bwght$cigs)
-```
 
 ###Cigs y faminc tienen una correlación negativa, ya que por lo general las madres con un mayor nivel de ingresos tienen estilos de vida más saludables, por lo cual tienden a no fumar en el embarazo.
 
@@ -84,7 +81,7 @@ El precio estimado para la casa con la línea de regresión MCO es de $354,604 d
 Residual = (300 - MCOprice)
 ```
  
- El comprador de la primera casa pagó $54,604.728 dólares menos de lo que se esperaba, lo que sugiere que el precio de la casa estaba sobreevaluado.
+ El comprador de la primera casa pagó $54,604.728 dólares menos de lo que se esperaba, lo que sugiere que el precio de la casa estaba subevaluado.
  
  
  
